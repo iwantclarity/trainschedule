@@ -14,11 +14,12 @@ var frequencyDisplay;
 var firstTrainDisplay;
 //var fDisplay;
 
-var nextTime = function() {
+var nextTime = function(firstTrainF, trainFrequency) {
 
-	console.log (firstTrainDisplay);
+	//console.log ("First Train Arrival");
+	//console.log (firstTrainF);
 
-	var firstMoment = moment(firstTrainDisplay, "hh:mm");
+	var firstMoment = moment(firstTrainF, "hh:mm");
 	console.log (firstMoment);
 
 	var currentMoment = moment();
@@ -35,7 +36,7 @@ var nextTime = function() {
 
 	//var nextArrival = moment(currentTime).format("hh:mm");
 
-//	var nextTime = moment(currentTime).diff( firstTimeCalc, "minutes");
+	//	var nextTime = moment(currentTime).diff( firstTimeCalc, "minutes");
 
 
 }
@@ -86,9 +87,9 @@ $(document).ready(function(){
 	var frequencyDisplay = localStorage.getItem("frequencyLocal" + i, frequency);	
 
 	//var nextTrain = "";
-	console.log (frequencyDisplay);
+	//console.log (frequencyDisplay);
 
-	nextTime(frequencyDisplay);	
+	nextTime(firstTrainDisplay, frequencyDisplay);	
 
 	
 	$( "#trainTable" ).append( "<tr> <td>" + nameTrainDisplay + "</td><td>" + destinationTrainDisplay +  "</td><td>" + frequencyDisplay  + "</td><td>" +  nextArrival +  "</td><td>" + nextTrain +  "</td></tr>" );
